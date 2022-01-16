@@ -25,12 +25,11 @@ use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
-library UNISIM;
-use UNISIM.VComponents.all;
+
 
 
 
@@ -49,32 +48,32 @@ end Debouncer;
 
 architecture Behavioral of Debouncer is
 
-signal Q11, Q12, Q13, Q21, Q22, Q23, Q31, Q32, Q33, Q41, Q42, Q43 : std_logic;
+signal OP11, OP12, OP13, OP21, OP22, OP23, OP31, OP32, OP33, OP41, OP42, OP43 : std_logic;
     BEGIN
     process(clock)
     BEGIN
         if (clock'event and clock = '1') then
-            Q11 <= b1;
-            Q12 <= Q11;
-            Q13 <= Q12;
+            OP11 <= b1;
+            OP12 <= OP11;
+            OP13 <= OP12;
    -----------------------BOTON1         
-            Q21 <= b2;
-            Q22 <= Q21;
-            Q23 <= Q22;
+            OP21 <= b2;
+            OP22 <= OP21;
+            OP23 <= OP22;
    -----------------------BOTON2
-            Q31 <= b3;
-            Q32 <= Q31;
-            Q33 <= Q32;
+            OP31 <= b3;
+            OP32 <= OP31;
+            OP33 <= OP32;
    -----------------------BOTON3
-            Q41 <= b4;
-            Q42 <= Q41;
-            Q43 <= Q42;
+            OP41 <= b4;
+            OP42 <= OP41;
+            OP43 <= OP42;
    -----------------------BOTON4
     end if;
     end process;
-        P1_OUT <= Q11 and Q12 and (not Q13);
-        P2_OUT <= Q21 and Q22 and (not Q23);
-        P3_OUT <= Q31 and Q32 and (not Q33);
-        P4_OUT <= Q41 and Q42 and (not Q43);
+        P1_OUT <= OP11 and OP12 and OP13;
+        P2_OUT <= OP21 and OP22 and OP23;
+        P3_OUT <= OP31 and OP32 and OP33;
+        P4_OUT <= OP41 and OP42 and OP43;
         
 END behavioral;
