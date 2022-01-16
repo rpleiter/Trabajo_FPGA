@@ -1,0 +1,36 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity DEC1_tb is
+end DEC1_tb;
+  architecture Behavioral of DEC1_tb is
+      component DEC1
+       Port ( clock : in STD_LOGIC;
+       boton1 : in STD_LOGIC;
+       boton2 : in STD_LOGIC;
+       boton3 : in STD_LOGIC;
+       boton4 : in STD_LOGIC;
+       piso_destino : out STD_LOGIC_VECTOR (2 DOWNTO 0));
+      end component;
+    constant K: time := 100 ns;
+    signal b1: std_logic:='0';
+    signal b2: std_logic:='0';
+    signal b3: std_logic:='0';
+    signal b4: std_logic:='0';
+    signal ck: std_logic:='0';
+    signal pd1: std_logic_vector (2 downto 0);
+       begin
+
+decoder_tb: DEC1
+     port map(
+     clock => ck,
+     boton1 => b1,
+     boton2 => b2,
+     boton3 => b3,
+     boton4 => b4,
+     planta_destino1 => pd1
+     );
+ck <= not ck after 0.5 * K;
+-- poner el boton que quieras b1,b2...    <= '1' after 1 * k, '0' after 2 * k;
+end Behavioral;
